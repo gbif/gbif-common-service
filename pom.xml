@@ -23,7 +23,7 @@
   </parent>
 
   <artifactId>gbif-common-service</artifactId>
-  <version>0.10-SNAPSHOT</version>
+  <version>0.10</version>
   <packaging>jar</packaging>
 
   <name>GBIF Common :: Service</name>
@@ -43,7 +43,7 @@
     <connection>scm:git:git@github.com:gbif/gbif-common-service.git</connection>
     <url>https://github.com/gbif/gbif-common-service</url>
     <developerConnection>scm:git:git@github.com:gbif/gbif-common-service.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>gbif-common-service-0.10</tag>
   </scm>
   
   <repositories>
@@ -73,7 +73,7 @@
     <dependency>
       <groupId>org.gbif</groupId>
       <artifactId>gbif-api</artifactId>
-      <version>${gbif-api.version}</version>
+      <version>0.12</version>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
