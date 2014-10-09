@@ -15,11 +15,8 @@
  */
 package org.gbif.service.guice;
 
-import java.util.Map;
 import java.util.Properties;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Maps;
 import com.google.inject.PrivateModule;
 import com.google.inject.name.Names;
 
@@ -37,7 +34,7 @@ import com.google.inject.name.Names;
 public abstract class PrivateServiceModule extends PrivateModule {
 
   private final String propertyPrefix;
-  private final Map<String, String> properties;
+  private final Properties properties;
 
   // This is needed for some scenarios which need to install other modules relying on
   // the properties, but using different prefixes
@@ -62,16 +59,16 @@ public abstract class PrivateServiceModule extends PrivateModule {
    *
    * @return immutable Map with the translated and filtered properties
    */
-  private Map<String, String> buildProperties(Properties properties) {
-    ImmutableMap.Builder<String, String> builder = ImmutableMap.builder();
+  private Properties buildProperties(Properties properties) {
+    Properties filtered = new Properties();
 
-    for (Map.Entry<String, String> entry : Maps.fromProperties(properties).entrySet()) {
-      if (entry.getKey().startsWith(propertyPrefix)) {
-        builder.put(entry.getKey().substring(propertyPrefix.length()), entry.getValue());
+    for(String key : properties.stringPropertyNames()) {
+      if (key.startsWith(propertyPrefix)) {
+        filtered.setProperty(key.substring(propertyPrefix.length()), properties.getProperty(key));
       }
     }
 
-    return builder.build();
+    return filtered;
   }
 
   @Override
@@ -84,6 +81,15 @@ public abstract class PrivateServiceModule extends PrivateModule {
    * Implement this method to configure the guice module.
    */
   protected abstract void configureService();
+
+  /**
+   * Only subclasses are intended to use this.
+   *
+   * @return The filtered properties with stripped prefixes
+   */
+  protected Properties getProperties() {
+    return properties;
+  }
 
   /**
    * Only subclasses are intended to use this.

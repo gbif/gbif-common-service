@@ -73,7 +73,7 @@
     <dependency>
       <groupId>org.gbif</groupId>
       <artifactId>gbif-api</artifactId>
-      <version>0.12</version>
+      <version>${gbif-api.version}</version>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
