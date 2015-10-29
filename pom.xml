@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.gbif</groupId>
     <artifactId>motherpom</artifactId>
-    <version>23</version>
+    <version>24</version>
   </parent>
 
   <artifactId>gbif-common-service</artifactId>
@@ -13,7 +13,7 @@
 
   <name>GBIF Common :: Service</name>
   <description>Utilities for common service layers</description>
-  <url>http://sites.gbif.org/common-resources/gbif-common-service</url>
+  <url>https://github.com/gbif/gbif-common-service</url>
 
   <properties>
     <jdkLevel>1.7</jdkLevel>
