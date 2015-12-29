@@ -15,6 +15,8 @@
  */
 package org.gbif.service.guice;
 
+import org.gbif.service.util.PropertiesUtils;
+
 import java.util.Properties;
 
 import com.google.inject.PrivateModule;
@@ -48,27 +50,7 @@ public abstract class PrivateServiceModule extends PrivateModule {
   public PrivateServiceModule(String propertyPrefix, Properties properties) {
     this.propertyPrefix = propertyPrefix;
     this.verbatimProperties = properties;
-    this.properties = buildProperties(properties);
-  }
-
-  /**
-   * Filters out all properties that don't have a common prefix and removes that prefix for those properties that do
-   * have it.
-   *
-   * @param properties to filter and translate
-   *
-   * @return immutable Map with the translated and filtered properties
-   */
-  private Properties buildProperties(Properties properties) {
-    Properties filtered = new Properties();
-
-    for(String key : properties.stringPropertyNames()) {
-      if (key.startsWith(propertyPrefix)) {
-        filtered.setProperty(key.substring(propertyPrefix.length()), properties.getProperty(key));
-      }
-    }
-
-    return filtered;
+    this.properties = PropertiesUtils.filterProperties(properties, propertyPrefix);
   }
 
   @Override
