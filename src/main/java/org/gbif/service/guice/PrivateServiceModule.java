@@ -15,12 +15,12 @@
  */
 package org.gbif.service.guice;
 
-import org.gbif.service.util.PropertiesUtils;
-
 import java.util.Properties;
 
 import com.google.inject.PrivateModule;
 import com.google.inject.name.Names;
+
+import static org.gbif.utils.file.properties.PropertiesUtil.filterProperties;
 
 /**
  * Abstract Guice Module to use for private service modules that depend on properties for configuration.
@@ -50,7 +50,7 @@ public abstract class PrivateServiceModule extends PrivateModule {
   public PrivateServiceModule(String propertyPrefix, Properties properties) {
     this.propertyPrefix = propertyPrefix;
     this.verbatimProperties = properties;
-    this.properties = PropertiesUtils.filterProperties(properties, propertyPrefix);
+    this.properties = filterProperties(properties, propertyPrefix);
   }
 
   @Override
