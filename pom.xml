@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.gbif</groupId>
     <artifactId>motherpom</artifactId>
-    <version>35</version>
+    <version>56</version>
   </parent>
 
   <artifactId>gbif-common-service</artifactId>
@@ -16,11 +16,11 @@
   <url>https://github.com/gbif/gbif-common-service</url>
 
   <properties>
-    <jdkLevel>1.7</jdkLevel>
+    <jdkLevel>1.8</jdkLevel>
 
     <aopalliance.version>1.0</aopalliance.version>
-    <gbif-api.version>0.71</gbif-api.version>
-    <gbif-common.version>0.41</gbif-common.version>
+    <gbif-api.version>0.160-SNAPSHOT</gbif-api.version>
+    <gbif-common.version>0.52</gbif-common.version>
     <guava.version>18.0</guava.version>
     <guice.version>4.0</guice.version>
     <junit.version>4.12</junit.version>
