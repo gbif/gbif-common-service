@@ -19,7 +19,7 @@
     <jdkLevel>1.8</jdkLevel>
 
     <aopalliance.version>1.0</aopalliance.version>
-    <gbif-api.version>0.160-SNAPSHOT</gbif-api.version>
+    <gbif-api.version>0.165</gbif-api.version>
     <gbif-common.version>0.52</gbif-common.version>
     <guava.version>18.0</guava.version>
     <guice.version>4.0</guice.version>
